@@ -92,37 +92,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>com.spotify</groupId>-->
-                <!--<artifactId>docker-maven-plugin</artifactId>-->
-                <!--<version>1.2.0</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>build-image</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>build</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--<dockerHost>http://118.24.162.57:2375</dockerHost>-->
-                    <!--<imageName>javaboy/${project.artifactId}</imageName>-->
-                    <!--<imageTags>-->
-                        <!--<imageTag>${project.version}</imageTag>-->
-                    <!--</imageTags>-->
-                    <!--<forceTags>true</forceTags>-->
-                    <!--<dockerDirectory>${project.basedir}</dockerDirectory>-->
-                    <!--<resources>-->
-                        <!--<resource>-->
-                            <!--<targetPath>/</targetPath>-->
-                            <!--<directory>${project.build.directory}</directory>-->
-                            <!--<include>${project.build.finalName}.jar</include>-->
-                        <!--</resource>-->
-                    <!--</resources>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-
             <!--使用docker-maven-plugin插件-->
             <plugin>
                 <groupId>com.spotify</groupId>
@@ -131,8 +100,7 @@
                 <!--将插件绑定在某个phase执行-->
                 <executions>
                     <execution>
-                        <id>build-image
-                        </id>
+                        <id>build-image</id>
                         <!--将插件绑定在package这个phase上。也就是说，用户只需执行mvn package ，就会自动执行mvn docker:build-->
                         <phase>package</phase>
                         <goals>
