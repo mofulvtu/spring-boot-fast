@@ -85,7 +85,7 @@
     <!-- 开发及测试环境才打印 SQL 日志 -->
     <springProfile name="dev,test">
         <!-- 指定 com.example.demo.dao.mapper 包要使用的 appender 且不向上级传递 -->
-        <logger name="cmcc.jifen.permission.modules" level="DEBUG" additivity="false">
+        <logger name="com.liuzg" level="DEBUG" additivity="false">
             <!-- 指定使用 DB 及 ERROR 这两个 appender -->
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="ERROR"/>
