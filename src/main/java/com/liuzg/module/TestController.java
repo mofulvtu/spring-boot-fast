@@ -27,7 +27,7 @@ public class TestController {
     @ApiOperation(value = "postUser", notes = "新增用户")
     @PostMapping(value = "/postUser")
     @ApiImplicitParam(value = "user", name = "user", dataType = "json", paramType = "json")
-    public RestMessage postUser(User user) {
+    public RestMessage postUser(@RequestBody User user) {
         return new RestMessage(userDao.insert(user));
     }
 
@@ -41,7 +41,7 @@ public class TestController {
     @ApiOperation(value = "putUser", notes = "更新用户")
     @PutMapping(value = "/putUser")
     @ApiImplicitParam(value = "user", name = "user", dataType = "json", paramType = "json")
-    public RestMessage putTest(User user) {
+    public RestMessage putTest(@RequestBody User user) {
         return new RestMessage(userDao.updateByPrimaryKey(user));
     }
 
