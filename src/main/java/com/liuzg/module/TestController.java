@@ -1,8 +1,11 @@
 package com.liuzg.module;
 
+import com.liuzg.dao.UserDao;
+import com.liuzg.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -18,26 +21,35 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class TestController {
 
+    @Autowired
+    private UserDao userDao;
 
-    @ApiOperation(value = "getTest", notes = "pgettest测试说明1")
-    @GetMapping(value = "/getTest")
-    @ApiImplicitParam(value = "code", name = "code", dataType = "string", paramType = "query", defaultValue = "abc")
-    public RestMessage getTest(String code) {
-        return new RestMessage(code);
+    @ApiOperation(value = "postUser", notes = "新增用户")
+    @PostMapping(value = "/postUser")
+    @ApiImplicitParam(value = "user", name = "user", dataType = "json", paramType = "json")
+    public RestMessage postUser(User user) {
+        return new RestMessage(userDao.insert(user));
     }
 
-    @ApiOperation(value = "putTest", notes = "putTest测试说明2")
-    @PutMapping(value = "/putTest")
-    @ApiImplicitParam(value = "code", name = "code", dataType = "string", paramType = "query", defaultValue = "abc")
-    public RestMessage putTest(String code) {
-        return new RestMessage(code);
+    @ApiOperation(value = "getUser", notes = "通过id获取用户")
+    @GetMapping(value = "/getUser")
+    @ApiImplicitParam(value = "id", name = "id", dataType = "int", paramType = "query", defaultValue = "1")
+    public RestMessage getTest(@RequestParam(value = "id") int id) {
+        return new RestMessage(userDao.selectByPrimaryKey(id));
     }
 
-    @ApiOperation(value = "deleteTest", notes = "deleteTest测试说明3")
-    @DeleteMapping(value = "/deleteTest")
-    @ApiImplicitParam(value = "code", name = "code", dataType = "string", paramType = "query", example = "abcefg")
-    public RestMessage deleteTest(@RequestParam(value = "code") String code) {
-        return new RestMessage(code);
+    @ApiOperation(value = "putUser", notes = "更新用户")
+    @PutMapping(value = "/putUser")
+    @ApiImplicitParam(value = "user", name = "user", dataType = "json", paramType = "json")
+    public RestMessage putTest(User user) {
+        return new RestMessage(userDao.updateByPrimaryKey(user));
+    }
+
+    @ApiOperation(value = "deleteUser", notes = "通过id删除用户")
+    @DeleteMapping(value = "/deleteUser")
+    @ApiImplicitParam(value = "id", name = "id", dataType = "int", paramType = "int", defaultValue = "")
+    public RestMessage deleteTest(@RequestParam(value = "id") int id) {
+        return new RestMessage(userDao.deleteByPrimaryKey(id));
     }
 
 
