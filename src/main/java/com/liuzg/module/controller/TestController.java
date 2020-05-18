@@ -1,7 +1,8 @@
-package com.liuzg.module;
+package com.liuzg.module.controller;
 
-import com.liuzg.dao.UserDao;
-import com.liuzg.entity.User;
+import com.liuzg.utils.RestMessage;
+import com.liuzg.module.dao.UserDao;
+import com.liuzg.module.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

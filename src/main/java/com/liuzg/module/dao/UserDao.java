@@ -1,6 +1,5 @@
-package com.liuzg.dao;
-
-import com.liuzg.entity.User;
+package com.liuzg.module.dao;
+import com.liuzg.module.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 

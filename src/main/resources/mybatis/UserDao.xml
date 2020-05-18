@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liuzg.dao.UserDao">
-  <resultMap id="BaseResultMap" type="com.liuzg.entity.User">
+<mapper namespace="com.liuzg.module.dao.UserDao">
+  <resultMap id="BaseResultMap" type="com.liuzg.module.entity.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="age" jdbcType="INTEGER" property="age" />
@@ -20,13 +20,13 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.liuzg.entity.User" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.liuzg.module.entity.User" useGeneratedKeys="true">
     insert into user (`name`, age, phone
       )
     values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.liuzg.entity.User" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.liuzg.module.entity.User" useGeneratedKeys="true">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">
@@ -51,7 +51,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuzg.entity.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.liuzg.module.entity.User">
     update user
     <set>
       <if test="name != null">
@@ -66,7 +66,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuzg.entity.User">
+  <update id="updateByPrimaryKey" parameterType="com.liuzg.module.entity.User">
     update user
     set `name` = #{name,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},

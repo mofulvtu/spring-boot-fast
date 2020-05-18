@@ -1,4 +1,4 @@
-package com.liuzg.entity;
+package com.liuzg.module.entity;
 
 import java.io.Serializable;
 import lombok.Data;
