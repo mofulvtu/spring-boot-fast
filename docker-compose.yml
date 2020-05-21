@@ -8,6 +8,9 @@ services:
     restart: always
     ports:
       - '8989:8080'
+    depends_on:
+      - mysql
+      - redis
   mysql:
     image: mysql:5.7
     container_name: mysql5.7
